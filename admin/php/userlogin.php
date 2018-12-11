@@ -33,7 +33,7 @@
 		
 		session_start();
 		$_SESSION['vali'] = 0;
-		echo "error--" . $dbusr["pw"] ."---". $password_hash ."--".$pw;
+		echo "error";
 	}
 
 ?>
