@@ -1,9 +1,9 @@
 <?php
 
 $servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "sz-medien";
+$username = "szmed";
+$password = 'szM3d$pr';
+$dbname = "szmed";
 
 
 	
