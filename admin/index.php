@@ -17,24 +17,24 @@
 	</div>
 </header>
 <main>
-	<div class="row">
-		<div class="col s2"></div>
-		<h4 class="col s9 left-align" style="border-bottom: #212121  solid 1px;">Anmelden</h4>
-		<div class="col s1"></div>
+	<div class="container">  
+		<div class="row center">
+			<div class="col s12"><h1 class="font-responsive">Admin Login</h1></div>
+		</div>
 	</div>
 	<!--- Login -->
 	<div class="container">
 		<div class="row row-small">
 			<div class="input-field col s12">
 			  <i class="material-icons prefix">account_circle</i>
-			  <input id="usrname" type="text" name="username" step="1">
+			  <input id="usrname" type="text" name="username">
 			  <label for="usrname">Login Name</label>
 			</div>
 		</div>
 		<div class="row row-small">
 			<div class="input-field col s12">
 			  <i class="material-icons prefix">dialpad</i>
-			  <input id="password" type="password" name="pw" step="2">
+			  <input id="password" type="password" name="pw">
 			  <label for="password">Password</label>
 			</div>
 		</div>
@@ -74,14 +74,14 @@
 			  },
 			  success:function(data) {
 				  if(data == "error"){
-					M.toast({html: 'Fehler beim Login!'})
+					M.toast({html: data})
 					$("#pre-loader").load('php/login_button.php');
 				  }else{
 					 window.location.href = "admin.php";
 				  }
 			  },			
 			  error:function() {
-				  M.toast({html: 'Fehler beim Login-Skript'})
+				  M.toast({html: 'Fehler beim Login'})
 				  $("#pre-loader").load('php/login_button.php');
 			  }
 			  });
