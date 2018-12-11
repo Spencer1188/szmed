@@ -73,7 +73,6 @@
 			   pw:pass
 			  },
 			  success:function(data) {
-				  alert(data);
 				  if(data == "error"){
 					M.toast({html: data})
 					$("#pre-loader").load('php/login_button.php');
