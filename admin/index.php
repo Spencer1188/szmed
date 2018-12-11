@@ -81,7 +81,7 @@
 				  }
 			  },			
 			  error:function() {
-				  M.toast({html: 'Fehler beim Login'})
+				  M.toast({html: 'Fehler beim Login-Skript'})
 				  $("#pre-loader").load('php/login_button.php');
 			  }
 			  });
