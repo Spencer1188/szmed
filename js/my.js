@@ -184,9 +184,11 @@
 		}
 
 function do_up_main() {
+
 	ina = $("#path_main").val();
 	
 	if(ina != ""){
+		$("#pre-main").load('php/pre-pic.php');
     var file_data = $('#in_main').prop('files')[0];   
     var form_data = new FormData();                  
     form_data.append('file', file_data);                            
@@ -204,18 +206,20 @@ function do_up_main() {
 				$("#pre-loader").load('php/get_pic_ins.php');
 			}else{
 				M.toast({html: data})
+				$("#pre-loader").load('php/get_pic_ins.php');
 			}
         }
      });
 		}else{
 			M.toast({html: "Kein Bild ausgewählt!"})
-		}
+		} 
 }
 
 function do_up_more() {
 	ina = $("#path_more").val();
 	
 	if(ina != ""){
+		$("#pre-more").load('php/pre-pic.php');
     var file_data = $('#in_more').prop('files')[0];   
     var form_data = new FormData();                  
     form_data.append('file', file_data);                            
@@ -233,6 +237,7 @@ function do_up_more() {
 				$("#pre-loader").load('php/get_pic_ins.php');
 			}else{
 				M.toast({html: data})
+				$("#pre-loader").load('php/get_pic_ins.php');
 			}
         }
      });
@@ -281,6 +286,7 @@ function do_up_pdf() {
 	ina = $("#path_pdf").val();
 	
 	if(ina != ""){
+		$("#pre-pdf").load('php/pre-pic.php');
     var file_data = $('#in_pdf').prop('files')[0];   
     var form_data = new FormData();                  
     form_data.append('file', file_data);                            

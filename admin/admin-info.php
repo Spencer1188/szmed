@@ -130,6 +130,7 @@
 	</div>
 	</div>
 </div>
+
 	<?php include "php/pre-modal.php" ?>
 		<script language="javascript" type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 	<script language="javascript" type="text/javascript" src="../js/materialize.js"></script>

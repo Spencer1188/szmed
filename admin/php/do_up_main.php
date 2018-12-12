@@ -9,13 +9,15 @@ $status;
 //Überprüfung der Dateiendung
 $allowed_extensions = array('png', 'jpg', 'jpeg', 'gif');
 if(!in_array($extension, $allowed_extensions)) {
- $status = "Ungültige Dateiendung. Nur png, jpg, jpeg und gif-Dateien sind erlaubt";
+ echo "Ungültige Dateiendung. Nur png, jpg, jpeg und gif-Dateien sind erlaubt";
+	die();
 }
  
 //Überprüfung der Dateigröße
 $max_size = 500*1024; //500 KB
 if($_FILES['file']['size'] > $max_size) {
-$status ="Bitte keine Dateien größer 500kb hochladen";
+echo "Bitte keine Dateien größer 500kb hochladen";
+	die();
 }
  
 //Überprüfung dass das Bild keine Fehler enthält
@@ -23,7 +25,8 @@ if(function_exists('exif_imagetype')) { //Die exif_imagetype-Funktion erfordert 
  $allowed_types = array(IMAGETYPE_PNG, IMAGETYPE_JPEG, IMAGETYPE_GIF);
  $detected_type = exif_imagetype($_FILES['file']['tmp_name']);
  if(!in_array($detected_type, $allowed_types)) {
-$status ="Nur der Upload von Bilddateien ist gestattet";
+echo "Nur der Upload von Bilddateien ist gestattet";
+	 die();
  }
 }
  

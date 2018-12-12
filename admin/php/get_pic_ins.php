@@ -23,9 +23,9 @@
 			  <div class="row col s12 l6">
 					  <h5 class="center">Main-Bild</h5>
 				  <div class="col s12 center">
-					  <div class="row" style="height: 212px;">
+					  <div class="row center" style="height: 212px;" id="pre-main">
 					  <?php if($cam["bildlink"] != "" && $cam["bildlink"] != "0"){ ?>
-						<div class="col s6 m4 l3">
+						<div class="col s6 m4 l3" id="pre-main">
 						 <div class="card">
 								<div class="card-image">
 								  <img src="../<?php echo $cam["bildlink"] ?>" class="responsive-img">
@@ -34,11 +34,10 @@
 						 </div>
 						</div>
 					  <?php }else{ ?>
-						<div class="col s6 m4 l3 center">
-						 <div class="center">
-						 </div>
+						<div class="col s6 m4 l3 center" id="pre-main">
+							
 						</div>
-				<?php } ?>
+					  <?php } ?>
 						
 					</div>
 				  </div>
@@ -63,7 +62,7 @@
 				  
 				 <div class="col s12 m12 l6">
 					  <h5 class="center">Weitere-Bilder</h5>
-					  <div class="row" style="height: 212px;">
+					  <div class="row" style="height: 212px;" id="pre-more">
 				<?php 
 					if ($result_pic->num_rows > 0) {
 					// output data of each row
@@ -112,7 +111,7 @@
 						   <div>
 							   <h5>PDF</h5>
 						   </div>
-						  	<div class="row" style="height: 212px;">
+						  	<div class="row" style="height: 212px;" id="pre-pdf">
 							
 				<?php 
 					if ($result_pdf->num_rows > 0) { ?>
