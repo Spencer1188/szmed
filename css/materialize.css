@@ -5815,6 +5815,22 @@ body.keyboard-focused .dropdown-content li:focus {
   will-change: top, opacity;
 }
 
+.modal-pre {
+  display: none;
+  position: fixed;
+  left: 0;
+  right: 0;
+  background: #000;
+  opacity: 0.5 !important;
+  padding: 0;
+  max-height: 70%;
+  width: 55%;
+  margin: auto;
+  overflow-y: auto;
+  border-radius: 2px;
+}
+
+
 .modal:focus {
   outline: none;
 }

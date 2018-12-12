@@ -1,3 +1,6 @@
+<?php 
+session_start();
+$_SESSION["val"] = 0; ?>
 <!doctype html>
 <html>
 <head>

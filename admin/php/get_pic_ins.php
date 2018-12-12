@@ -176,19 +176,19 @@
 							<div class="file-field input-field col s12 row">
 							  <div class="btn col s2">
 								<span>File</span>
-								<input type="file" name="datei" id="in_vid" multiple style="width: 30%">
+								<input type="file" name="datei" id="in_vid" multiple style="width: 30%" onchange="fileChange();">
 							  </div>
 							  <div class="file-path-wrapper col s8">
 								<input class="file-path validate" type="text" id="path_vid">
 							  </div>
-							  <div class="col s2" style="margin-top: 10px;" id="upload_one">
-								<i class="material-icons" onClick="do_up_vid()">file_upload</i>
+							  <div class="col s2" style="margin-top: 10px;" id="upload_more">
+								<i class="material-icons" onclick="uploadFile();">file_upload</i>
 							  </div>
 							</div>
 					  </div>
 				</div>
 		</div>
-<?php if($new != false){ ?>
+<?php if($_SESSION["val"] != 1){ ?>
 <div class="row">
 	<div class="col s12">
 		<div class="center">
@@ -196,5 +196,6 @@
 		</div>
 	</div>
 </div>
+
 
 <?php } ?>

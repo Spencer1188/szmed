@@ -3,6 +3,7 @@
 	$id = $_GET["id"];
 	session_start();
 	$_SESSION["last_id"] = $id;
+	$_SESSION["val"] = 1;
 	$sql_bilder = "SELECT distinct * FROM `bilder` WHERE id = $id";
 	$result_pic = $conn->query($sql_bilder);
 	$result = $link->query("SELECT * FROM cameras where id=$id");
@@ -129,14 +130,17 @@
 	</div>
 	</div>
 </div>
+	<?php include "php/pre-modal.php" ?>
 		<script language="javascript" type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 	<script language="javascript" type="text/javascript" src="../js/materialize.js"></script>
 	<script language="javascript" type="text/javascript" src="../js/my.js"></script>
 	<script>
 		$(document).ready(function(){	 
-			$("#pre-loader").load('php/get_pic_ins.php?val=1');
+			$("#pre-loader").load('php/get_pic_ins.php');
     		$('.tabs').tabs();
+			$('#modal-pre').modal();
 		  });
+		
 		
 		function save_info(id){
 			alert("ok");
@@ -191,6 +195,86 @@
 
 		}
 	
-	</script>
+function fileChange()
+{
+    //FileList Objekt aus dem Input Element mit der ID "fileA"
+    var fileList = document.getElementById("in_vid").files;
+ 
+    //File Objekt (erstes Element der FileList)
+    var file = fileList[0];
+ 
+    //File Objekt nicht vorhanden = keine Datei ausgewählt oder vom Browser nicht unterstützt
+    if(!file)
+        return;
+ 
+    document.getElementById("fileName").innerHTML = 'Dateiname: ' + file.name;
+    document.getElementById("fileSize").innerHTML = 'Dateigröße: ' + file.size + ' B';
+    document.getElementById("fileType").innerHTML = 'Dateitype: ' + file.type;
+    document.getElementById("progress").value = 0;
+    document.getElementById("prozent").innerHTML = "0%";
+}
+
+var client = null;
+
+function uploadFile()
+{
+    //Wieder unser File Objekt
+    var file = document.getElementById("in_vid").files[0];
+    //FormData Objekt erzeugen
+    var formData = new FormData();
+    //XMLHttpRequest Objekt erzeugen
+   	client = new XMLHttpRequest();
+	
+    var prog = document.getElementById("progress");
+ 
+    if(!file){
+		M.toast({html: 'Kein Video gewählt!'})
+        return;
+		}
+	$('#modal-pre').modal('open');
+ 
+    prog.value = 0;
+    prog.max = 100;
+ 
+    //Fügt dem formData Objekt unser File Objekt hinzu
+    formData.append("datei", file);
+ 
+    client.onerror = function(e) {
+        M.toast({html: 'Video hochladen fehlgeschlagen!'})
+    };
+ 
+    client.onload = function(e) {
+        document.getElementById("prozent").innerHTML = "100%";
+        prog.value = prog.max;
+    };
+ 
+    client.upload.onprogress = function(e) {
+		var p = Math.round(100 / e.total * e.loaded);
+        document.getElementById("progress").value = p;            
+        document.getElementById("prozent").innerHTML = p + "%";
+		if(p == 100){ 
+			M.toast({html: 'Video hochgeladen!'})
+			$("#pre-loader").load('php/get_pic_ins.php');
+		}
+    };
+	
+	client.onabort = function(e) {
+		alert("Upload abgebrochen");
+	};
+ 
+    client.open("POST", "php/vid_up.php");
+    client.send(formData);
+	
+				 
+}
+
+function uploadAbort() {
+	if(client instanceof XMLHttpRequest)
+		//Briecht die aktuelle Übertragung ab
+		client.abort();
+}
+</script>
+		
+	
 </body>
 </html>

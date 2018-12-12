@@ -320,31 +320,7 @@ function do_up_pdf() {
 			  }
 			  });
 }
-		
-		function do_up_vid() {
-	ina = $("#path_vid").val();
-	
-	if(ina != ""){
-    var file_data = $('#in_vid').prop('files')[0];   
-    var form_data = new FormData();                  
-    form_data.append('file', file_data);                            
-    $.ajax({
-        url: 'php/vid_up.php', // point to server-side PHP script 
-        dataType: 'text',  // what to expect back from the PHP script, if anything
-        cache: false,
-        contentType: false,
-        processData: false,
-        data: form_data,                        
-        type: 'post',
-        success: function(data){
-			   //M.toast({html: data});
-				$("#pre-loader").load('php/get_pic_ins.php');
-        }
-     });
-		}else{
-			M.toast({html: "Kein Bild ausgewählt!"})
-		}
-}
+
 		
 		function delete_vid(id) {                        
 			 $.ajax
