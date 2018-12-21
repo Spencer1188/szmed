@@ -83,8 +83,8 @@
 				  <li class="collection-item">Kameratyp: <?php echo $cam["Kameratyp"] ?></li>
 				  <li class="collection-item">Dimensionen: <?php echo $cam["dim"] ?></li>
 				  <li class="collection-item">Gewicht: <?php echo $cam["Gewicht"] ?></li>
-				  <li class="collection-item">Auflösung <?php echo $cam["afl"] ?></li>
-				  <li class="collection-item">Auflösung <?php echo $cam["iso"] ?></li>
+				  <li class="collection-item">Auflösung: <?php echo $cam["afl"] ?></li>
+				  <li class="collection-item">ISO: <?php echo $cam["iso"] ?></li>
 				  <li class="collection-item">Datenblatt/Anleitung:
 			<?php 
 					if ($result_dt->num_rows > 0) { 
