@@ -51,10 +51,7 @@
 							  <div class="file-path-wrapper col s8">
 								<input class="file-path validate" type="text" id="path_main"></input>
 							  </div>
-								
-							  <div class="col s2" style="margin-top: 10px;" id="upload_one" onClick="do_up_main()">
-								<i class="material-icons">file_upload</i>
-							  </div>
+							  <button class="btn col s2" onClick="do_up_main()"><i class="material-icons">file_upload</i></button>
 							</div>
 						</div>
 					  	  </div>
@@ -97,9 +94,8 @@
 								<input class="file-path validate" type="text" id="path_more" multiple="multiple"></input>
 							  </div>
 								
-							  <div class="col s2" style="margin-top: 10px;" id="upload_one" onClick="do_up_more()">
-								<i class="material-icons">file_upload</i>
-							  </div>
+							  
+							  <button class="btn col s2" onClick="do_up_more()"><i class="material-icons">file_upload</i></button>
 							</div>
 						</div>
 				  </div>
@@ -147,10 +143,7 @@
 							  <div class="file-path-wrapper col s8">
 								<input class="file-path validate" type="text" id="path_pdf" multiple="multiple"></input>
 							  </div>
-								
-							  <div class="col s2" style="margin-top: 10px;" id="upload_one" onClick="do_up_pdf()">
-								<i class="material-icons">file_upload</i>
-							  </div>
+							  <button class="btn col s2" onClick="do_up_pdf()"><i class="material-icons">file_upload</i></button>
 							</div>
 					  </div>
 
@@ -172,18 +165,18 @@
 						</div>
 				<?php } ?>
 						</div>
+							<form method="post" action="php/vid_up.php" enctype="multipart/form-data">
 							<div class="file-field input-field col s12 row">
 							  <div class="btn col s2">
 								<span>File</span>
-								<input type="file" name="datei" id="in_vid" multiple style="width: 30%" onchange="fileChange();">
+								  <input type="file" name="file" style="width: 30%"/>
 							  </div>
 							  <div class="file-path-wrapper col s8">
 								<input class="file-path validate" type="text" id="path_vid">
 							  </div>
-							  <div class="col s2" style="margin-top: 10px;" id="upload_more">
-								<i class="material-icons" onclick="uploadFile();">file_upload</i>
-							  </div>
+							  <button class="btn col s2"><i class="material-icons">file_upload</i></button>
 							</div>
+							</form>
 					  </div>
 				</div>
 		</div>
@@ -198,3 +191,34 @@
 
 
 <?php } ?>
+
+<script>
+
+	$(function() {
+	$(document).ready(function(){
+		var bar = $('#bar')
+		var percent = $('#percent');
+		var status = $('#status');
+
+	$('form').ajaxForm({
+		beforeSend: function() {
+		$('#modal-pre').modal('open');
+		status.empty();
+		var percentVal = '0%';
+		bar.width(percentVal);
+		percent.html(percentVal);
+		},
+	uploadProgress: function(event, position, total, percentComplete) {
+		var percentVal = percentComplete + '%';
+		percent.html(percentVal);
+		bar.width(percentVal);
+		},
+	complete: function(xhr) {
+		status.html(xhr.responseText);
+		$("#pre-loader").load('php/get_pic_ins.php');
+		}
+		});
+	});
+});
+
+</script>

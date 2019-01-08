@@ -15,6 +15,25 @@
 <meta charset="utf-8">
 <title>Unbenanntes Dokument</title>
 <?php include "admin_header.php" ?>
+	<style>
+	
+		#bararea{
+ width:100%;
+ height:40px;
+ border:2px solid #000;
+}
+ 
+#bar{
+ width:0%;
+ height:36px;
+ background-color: grey;
+}
+ 
+#status{
+ color:#000;
+}
+		
+	</style>
 </head>
 <body>
 	
@@ -131,10 +150,24 @@
 	</div>
 </div>
 
-	<?php include "php/pre-modal.php" ?>
-		<script language="javascript" type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
-	<script language="javascript" type="text/javascript" src="../js/materialize.js"></script>
-	<script language="javascript" type="text/javascript" src="../js/my.js"></script>
+<div id="modal-pre" class="modal">
+    <div class="modal-content">
+
+	<div>
+		<div id="bararea">
+			<div id="bar"></div>
+		</div>
+
+		<div id="percent"></div>
+		<div id="status"></div>
+	</div>
+    </div>
+  </div>
+	
+<script language="javascript" type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+<script language="javascript" type="text/javascript" src="../js/materialize.js"></script>
+<script language="javascript" type="text/javascript" src="../js/my.js"></script>
+<script src="http://oss.maxcdn.com/jquery.form/3.50/jquery.form.min.js"></script>
 	<script>
 		$(document).ready(function(){	 
 			$("#pre-loader").load('php/get_pic_ins.php');
@@ -195,85 +228,7 @@
 		 } 
 
 		}
-	
-function fileChange()
-{
-    //FileList Objekt aus dem Input Element mit der ID "fileA"
-    var fileList = document.getElementById("in_vid").files;
- 
-    //File Objekt (erstes Element der FileList)
-    var file = fileList[0];
- 
-    //File Objekt nicht vorhanden = keine Datei ausgewählt oder vom Browser nicht unterstützt
-    if(!file)
-        return;
- 
-    document.getElementById("fileName").innerHTML = 'Dateiname: ' + file.name;
-    document.getElementById("fileSize").innerHTML = 'Dateigröße: ' + file.size + ' B';
-    document.getElementById("fileType").innerHTML = 'Dateitype: ' + file.type;
-    document.getElementById("progress").value = 0;
-    document.getElementById("prozent").innerHTML = "0%";
-}
 
-var client = null;
-
-function uploadFile()
-{
-    //Wieder unser File Objekt
-    var file = document.getElementById("in_vid").files[0];
-    //FormData Objekt erzeugen
-    var formData = new FormData();
-    //XMLHttpRequest Objekt erzeugen
-   	client = new XMLHttpRequest();
-	
-    var prog = document.getElementById("progress");
- 
-    if(!file){
-		M.toast({html: 'Kein Video gewählt!'})
-        return;
-		}
-	$('#modal-pre').modal('open');
- 
-    prog.value = 0;
-    prog.max = 100;
- 
-    //Fügt dem formData Objekt unser File Objekt hinzu
-    formData.append("datei", file);
- 
-    client.onerror = function(e) {
-        M.toast({html: 'Video hochladen fehlgeschlagen!'})
-    };
- 
-    client.onload = function(e) {
-        document.getElementById("prozent").innerHTML = "100%";
-        prog.value = prog.max;
-    };
- 
-    client.upload.onprogress = function(e) {
-		var p = Math.round(100 / e.total * e.loaded);
-        document.getElementById("progress").value = p;            
-        document.getElementById("prozent").innerHTML = p + "%";
-		if(p == 100){ 
-			M.toast({html: 'Video hochgeladen!'})
-			$("#pre-loader").load('php/get_pic_ins.php');
-		}
-    };
-	
-	client.onabort = function(e) {
-		alert("Upload abgebrochen");
-	};
- 
-    client.open("POST", "php/vid_up.php");
-    client.send(formData);
-	
-				 
-}
-
-function uploadAbort() {
-	if(client instanceof XMLHttpRequest)
-		//Briecht die aktuelle Übertragung ab
-		client.abort();
-}
 </script>
 		
 	
