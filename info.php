@@ -83,7 +83,8 @@
 				  <li class="collection-item">Kameratyp: <?php echo $cam["Kameratyp"] ?></li>
 				  <li class="collection-item">Auflösung: <?php echo $cam["afl"] ?></li>
 				  <li class="collection-item">Akkulaufzeit: <?php echo $cam["akkulaufzeit"] ?></li>
-				  <li class="collection-item">Verschlusszeit: <?php echo $cam["Verschlusszeiten"] ?></li>
+				  <li class="collection-item">Akkulaufzeit: <?php echo $cam["akkulaufzeit"] ?></li>
+				  <li class="collection-item">Speicherkarte: <?php echo $cam["speicherkarte"] ?></li>
 				  <li class="collection-item">ISO: <?php echo $cam["iso"] ?></li>
 				  <li class="collection-item">Dimensionen: <?php echo $cam["dim"] ?></li>
 				  <li class="collection-item">Gewicht: <?php echo $cam["Gewicht"] ?></li>
