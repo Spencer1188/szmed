@@ -81,12 +81,6 @@
 					  <label for="marke">Marke</label>
 					</div>
 				</div>
-				<div class="row">
-				    <div class="input-field col s12">
-						<textarea id="beschreibung" class="materialize-textarea" data-length="120" required><?php echo $cam["beschreibung"]; ?></textarea>
-						<label for="beschreibung">Beschreibung</label>
-				  	</div>
-				</div>
 			  <div class="row">
 					<div class="input-field col s12 m6 l6">
 				  	  <input placeholder="" id="typ" type="text" class="validate" value="<?php echo $cam["Kameratyp"]; ?>" required>
@@ -103,7 +97,7 @@
 					  <label for="akl">Akkulaufzeit</label>
 				  	</div>
 					<div class="input-field col s12 m6 l6">
-					  <input placeholder="" id="spmed" type="text" class="validate" value="<?php echo "in arb"; ?>" required>
+					  <input placeholder="" id="spmed" type="text" class="validate" value="<?php echo $cam["speicherkarte"]; ?>" required>
 					  <label for="spmed">Speicherkarte</label>
 					</div>
 				</div>

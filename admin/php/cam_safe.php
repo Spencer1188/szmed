@@ -15,7 +15,7 @@
 	$gw = $_POST["gw"];
 	$dim = $_POST["dim"];
 
-	$ins = "UPDATE `cameras` SET `inr`='$ivnr',`name`='$name',`beschreibung`='$bes',`marke`='$marke',`akkulaufzeit`='$akl',`Kameratyp`='$typ',`afl`='$afl',`Verschlusszeiten`='$vsz',`iso`='$iso',`Gewicht`='$gw'
+	$ins = "UPDATE `cameras` SET `inr`='$ivnr',`name`='$name',`marke`='$marke',`akkulaufzeit`='$akl',`Kameratyp`='$typ',`speicherkarte`='$spmed',`afl`='$afl',`Verschlusszeiten`='$vsz',`iso`='$iso',`Gewicht`='$gw'
 	,`dim`='$dim' WHERE id = '$id'";
 
 if ($conn->query($ins) === TRUE) {

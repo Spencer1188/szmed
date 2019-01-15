@@ -16,12 +16,6 @@
 					  <label for="marke">Marke</label>
 					</div>
 				</div>
-				<div class="row">
-				    <div class="input-field col s12">
-						<textarea id="beschreibung" class="materialize-textarea" data-length="120" required></textarea>
-						<label for="beschreibung">Beschreibung</label>
-				  	</div>
-				</div>
 			  <div class="row">
 					<div class="input-field col s12 m6 l6">
 				  	  <input id="typ" type="text" class="validate" value="" required>

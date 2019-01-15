@@ -81,10 +81,12 @@
 				  <li class="collection-item">Inventar ID: <?php echo $cam["inr"] ?></li>
 				  <li class="collection-item">Marke: <?php echo $cam["marke"] ?></li>
 				  <li class="collection-item">Kameratyp: <?php echo $cam["Kameratyp"] ?></li>
+				  <li class="collection-item">Auflösung: <?php echo $cam["afl"] ?></li>
+				  <li class="collection-item">Akkulaufzeit: <?php echo $cam["akkulaufzeit"] ?></li>
+				  <li class="collection-item">Verschlusszeit: <?php echo $cam["Verschlusszeiten"] ?></li>
+				  <li class="collection-item">ISO: <?php echo $cam["iso"] ?></li>
 				  <li class="collection-item">Dimensionen: <?php echo $cam["dim"] ?></li>
 				  <li class="collection-item">Gewicht: <?php echo $cam["Gewicht"] ?></li>
-				  <li class="collection-item">Auflösung: <?php echo $cam["afl"] ?></li>
-				  <li class="collection-item">ISO: <?php echo $cam["iso"] ?></li>
 				  <li class="collection-item">Datenblatt/Anleitung:
 			<?php 
 					if ($result_dt->num_rows > 0) { 
